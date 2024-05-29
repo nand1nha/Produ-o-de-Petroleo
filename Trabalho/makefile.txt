@@ -1,0 +1,13 @@
+all: teste
+
+teste: trabalho.o main.o
+	gcc -o teste trabalho.o main.o
+
+trabalho.o: trabalho.c trabalho.h
+	gcc -c trabalho.c -Wall -Werror -Wextra
+
+main.o: main.c trabalho.h
+	gcc -c main.c -Wall -Werror -Wextra
+
+clean:
+	rm -rf *.o teste
